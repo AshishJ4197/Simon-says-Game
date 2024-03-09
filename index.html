@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simon Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div>
+    <br><br><br>
+  <h1>Simon Game</h1>
+  <h2>Press Enter to start the Game</h2>
+  <span class="score">High Score <span class="inner_score">0</span></span>
+  </div>
+  
+  <div class="container">
+    <div class="line1" type="button">
+      <div class="box red" id="red"></div>
+      <div class="box yellow" id="yellow"></div>
+    </div>
+    <div class="line2" type="button">
+      <div class="box green" id="green"></div>
+      <div class="box purple" id="purple"></div>
+    </div>
+  </div>
+  <audio id="buttonSound" src="button_click.mp3"></audio>
+  <script src="app.js"></script>
+</body>
+</html>
