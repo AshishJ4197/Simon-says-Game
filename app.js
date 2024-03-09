@@ -21,6 +21,7 @@ document.addEventListener('keypress', function(event) {
             act_Btn_Listeners();
         },300);
     }
+    
 });
 
 document.addEventListener('touchstart', function(event) {
