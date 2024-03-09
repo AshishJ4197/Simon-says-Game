@@ -14,9 +14,6 @@ buzzSound.load();
 
 document.addEventListener('keypress', function(event) {
     if (event.code === 'Enter' && !started) {
-        playSound.play().catch(function(error) {
-            console.error('Failed to play sound:', error);
-        });
         started = true;
         console.log("game started");
         setTimeout(() => {
