@@ -19,18 +19,22 @@ document.addEventListener('keypress', function(event) {
         });
         started = true;
         console.log("game started");
-        levelUp();
+        setTimeout(() => {
+            levelUp();
+            act_Btn_Listeners();
+        },300);
     }
 });
 
 document.addEventListener('touchstart', function(event) {
     if (!started) {
-        playSound.play().catch(function(error) {
-            console.error('Failed to play sound:', error);
-        });
         started = true;
         console.log("game started");
-        levelUp();
+        setTimeout(() => {
+            levelUp();
+            act_Btn_Listeners();
+        }, 400);
+   
     }
 });
 
@@ -56,6 +60,10 @@ function levelUp() {
     let randColor = btns[randInx];
     let randBtn = document.querySelector(`.${randColor}`);
     gameSeq.push(randColor);
+    console.log(gameSeq);
+    playSound.play().catch(function(error) {
+        console.error('Failed to play sound:', error);
+    });
     white_Flash(randBtn);
 }
 
@@ -79,6 +87,7 @@ function check(idx) {
             document.querySelector('body').style.backgroundColor = 'white';
         }, 200);
         setTimeout(reset, 1500);
+        console.log("Game ended");
     }
 }
 
@@ -97,10 +106,17 @@ function btnPress(event) {
 }
 
 let all_btns = document.querySelector('.container');
-if ('ontouchstart' in window) {
-    all_btns.addEventListener('touchend', btnPress);
-} else {
-    all_btns.addEventListener('click', btnPress);
+
+function act_Btn_Listeners(){
+    if (('ontouchstart' in window) && started ) {
+        all_btns.addEventListener('touchend', btnPress);
+    } else {
+        all_btns.addEventListener('click', btnPress);
+    }
+}
+
+function rem_Btn_Listeners(){
+    all_btns.removeEventListener('touchend', btnPress);
 }
 
 function reset() {
@@ -108,4 +124,5 @@ function reset() {
     level = 0;
     gameSeq = [];
     userSeq = [];
+    rem_Btn_Listeners();
 }

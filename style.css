@@ -56,7 +56,9 @@ h1, h2{
     position: absolute;
     top: 2rem;
     right: 2rem;
+    border-radius: 15px;
   }
+
   
   .inner_score{
     font-size: 3rem;
@@ -70,12 +72,3 @@ h1, h2{
       transform: translateX(-50%);
     }
   }
-
-  /* .start{
-    border: 2px solid black;
-    height: 50px;
-    font-size: 2rem;
-    text-align: center;
-    width: 40%;
-    margin-bottom: 10px;
-  } */

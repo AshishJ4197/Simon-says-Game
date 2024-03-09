@@ -17,9 +17,12 @@ The provided JavaScript code implements the logic for the Simon Says game. Here'
 - `userSeq`: Array to store the sequence of colors entered by the player.
 - `level`: Variable to keep track of the current level of the game.
 - `levelUp()`: Function to generate the next level of the game by adding a new color to the sequence.
-- `check()`: Function to check if the player's input matches the game sequence.
+- `white_Flash(btn)`: Function to add a white flash effect to a button upon game's random choice.
+- `green_Flash(btn)`: Function to add a green flash effect to a button upon user's input.
 - `btnPress()`: Function to handle button clicks and capture the player's input.
-- `reset()`: Function to reset the game state when the game ends.
+- `act_Btn_Listeners()`: Function to reset the game state when the game ends.
+activateTouchButtonListener()`: Function to activate touch button listeners with a delay at the beginning of the game.
+- `rem_Btn_Listeners()`: Function to deactivate touch button listeners after reset.
 
 
 ## Credits
