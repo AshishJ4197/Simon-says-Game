@@ -5,7 +5,41 @@ let btns = ['red', 'yellow', 'purple', 'green'];
 let started = false;
 let level = 0;
 let h2 = document.querySelector('h2');
-let first_game = false;
+let ques_clicked= false;
+
+// Displaying Rules
+let infoBtn = document.querySelector('.info');
+
+infoBtn.addEventListener('click',open_rules);
+// infoBtn.addEventListener('touchstart',show_rules);
+
+let rules = document.querySelector('.rules_of_game');
+
+function open_rules(){
+    ques_clicked = true;
+    reset();
+    setTimeout(()=>{
+        h2.innerText= 'Press Enter to start the Game';
+    }, 240);
+    setTimeout(()=>{
+        rules.style.display = 'block';
+    }, 130);
+
+}
+
+function close_rules(){
+    ques_clicked = false;
+    setTimeout(()=>{
+    rules.style.display = 'none';
+    }, 230);
+}
+
+let closeBtn = document.querySelector('.close');
+
+closeBtn.addEventListener('click', close_rules);
+// closeBtn.addEventListener('touchstart', close_rules);
+
+// Game Logic
 
 let playSound = new Audio('button_click.mp3');
 playSound.load();
@@ -14,20 +48,27 @@ let buzzSound = new Audio("buzzer_sound.mp3");
 buzzSound.load();
 
 document.addEventListener('keypress', function(event) {
-    first_game = false;
-    if (event.code === 'Enter' && !started && !first_game) {
+    if (event.code === 'Enter' && !started && !ques_clicked) {
         started = true;
         console.log("game started");
         setTimeout(() => {
             levelUp();
-        },300);
+        },400);
         act_Btn_Listeners();
     }
 
 });
 
 document.addEventListener('touchstart', function(event) {
-    if (!started) {
+    if(event.target.classList.contains('info')){
+        open_rules();
+    }
+
+    else if(event.target.classList.contains('close')){
+        close_rules();
+    }
+
+    else if (!started && !ques_clicked) {
         started = true;
         console.log("game started");
         setTimeout(() => {

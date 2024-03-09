@@ -9,7 +9,7 @@
 <body>
   <div>
     <br><br><br>
-  <h1>Simon Game</h1>
+  <h1 id="main">Simon Game <sup><button class="info">?</button></sup></h1>
   <h2>Press Enter to start the Game</h2>
   <span class="score">High Score <span class="inner_score">0</span></span>
   </div>
@@ -24,7 +24,25 @@
       <div class="box purple" id="purple"></div>
     </div>
   </div>
-  <audio id="buttonSound" src="button_click.mp3"></audio>
+  
+  <!-- Rules of game -->
+  
+  <div class="rules_of_game">
+    <div class="content">
+        <span class="close">&times;</span>
+        <br><br><br><br><br>
+        <h1 class="how_to_play">How to Play</h1>
+        <ul>
+            <li>After the game starts, Simon displays a sequence of colored buttons and corresponding sounds.</li><br>
+            <li>The player must repeat the sequence exactly as shown by pressing the buttons in the same order.</li><br>
+            <li>If the player correctly repeats the sequence, the game levels up, adding a new color to the sequence.</li><br>
+            <li>Each time the player advances a level, the sequence becomes longer.</li><br>
+            <li>If the player makes a mistake, the game ends, and they have the option to restart from the beginning to try again.</li><br>
+            <li>To restart, the player must begin again from the first level with the original sequence.</li><br>
+            <li>The goal is to see how many levels the player can complete without making a mistake.</li>
+        </ul>
+    </div>
+  </div>
   <script src="app.js"></script>
 </body>
 </html>

@@ -1,8 +1,71 @@
-h1, h2{
+
+  .info{
+    background-color: transparent;
+    border: 2px solid black;
+    border-radius: 50%;
+    font-size: 15px;
+    font-weight: bold;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .info:hover{
+    background-color: rgb(228, 227, 227);
+  }
+
+
+  .rules_of_game{
+    display: none;
+    position: fixed;
+    top: 0%;
+    left: 0;
+    width: 100%;
+    background-color: rgb(212, 198, 198);
+    height: 100%;
+  }
+
+  .close{
+    color: rgb(46, 45, 45);
+    font-size: 2rem;
+    float: right;
+    margin-right: 20px;
+    font-weight: 500;
+    top: 5rem;
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 1px solid;
+    padding: 0 0.7%;
+
+  }
+
+  .close:active{
+    font-weight: bold;
+    background-color: rgb(210, 186, 186);
+  }
+
+  .how_to_play{
+    text-align: center;
+    color: #333;
+  }
+
+  ul{
+    padding-right: 2rem;
+  }
+
+  li{
+    font-family: Arial;
+    font-weight: 600;
+    text-align: justify;
+    color: #333;
+  }
+
+
+  #main, h2{
     text-align: center;
     display: block;
   }
-
 
   .container{
     display: flex;
@@ -17,6 +80,7 @@ h1, h2{
     margin: 1em;
     text-align: center;
     font-weight: bold;
+    cursor: pointer;
   }
 
   .red{
@@ -42,7 +106,6 @@ h1, h2{
   .green_flash{
     background-color: rgb(144, 238, 144);
   }
-
 
   .score{
     border: 2px solid black;
@@ -76,4 +139,18 @@ h1, h2{
         height: 135px;
         width: 135px;
     }
+
+    .close{
+        padding: 0 1.95%;
+    }
+  }
+
+  @media (min-width: 1200px){
+    ul{
+        margin: 0 28%;
+      }
+    
+      li{
+        font-size: 20px;
+      }
   }
