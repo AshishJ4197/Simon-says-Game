@@ -5,6 +5,7 @@ let btns = ['red', 'yellow', 'purple', 'green'];
 let started = false;
 let level = 0;
 let h2 = document.querySelector('h2');
+let first_game = false;
 
 let playSound = new Audio('button_click.mp3');
 playSound.load();
@@ -13,15 +14,16 @@ let buzzSound = new Audio("buzzer_sound.mp3");
 buzzSound.load();
 
 document.addEventListener('keypress', function(event) {
-    if (event.code === 'Enter' && !started) {
+    first_game = false;
+    if (event.code === 'Enter' && !started && !first_game) {
         started = true;
         console.log("game started");
         setTimeout(() => {
             levelUp();
-            act_Btn_Listeners();
         },300);
+        act_Btn_Listeners();
     }
-    
+
 });
 
 document.addEventListener('touchstart', function(event) {
@@ -84,7 +86,7 @@ function check(idx) {
         setTimeout(() => {
             document.querySelector('body').style.backgroundColor = 'white';
         }, 200);
-        setTimeout(reset, 1500);
+        setTimeout(reset, 1200);
         console.log("Game ended");
     }
 }

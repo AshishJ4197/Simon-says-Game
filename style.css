@@ -10,8 +10,8 @@ h1, h2{
     flex-wrap: column;
   }
   .box{
-    height: 135px;
-    width: 135px;
+    height: 200px;
+    width: 200px;
     border-radius: 20%;
     border: 10px solid black;
     margin: 1em;
@@ -70,5 +70,10 @@ h1, h2{
       top: 37.5rem;
       left: 50%;
       transform: translateX(-50%);
+    }
+
+    .box{
+        height: 135px;
+        width: 135px;
     }
   }
