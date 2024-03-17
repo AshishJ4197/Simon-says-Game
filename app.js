@@ -7,6 +7,48 @@ let level = 0;
 let h2 = document.querySelector('h2');
 let ques_clicked= false;
 
+let playSound = new Audio('button_click.mp3');
+playSound.load();
+
+let buzzSound = new Audio("buzzer_sound.mp3");
+buzzSound.load();
+
+let sound = document.querySelector('.sound');
+let no_sound = document.querySelector('.no_sound');
+
+function toggleSound() {
+    if (no_sound.textContent === "") {
+        playSound.muted = true;
+        buzzSound.muted = true;
+        setTimeout(()=>{
+            no_sound.textContent = "/";
+        },10);
+    } else {
+        playSound.muted = false;
+        buzzSound.muted = false;
+        setTimeout(()=>{
+            no_sound.textContent = "";
+        },10);
+    }
+}
+
+const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+if (isTouchDevice) {
+    sound.addEventListener('touchstart', (event) => {
+        event.stopPropagation();
+        toggleSound();
+    });
+} else {
+    sound.addEventListener('click', (event) => {
+        event.stopPropagation();
+        toggleSound();
+        
+    });
+}
+
+
+
 // Displaying Rules
 let infoBtn = document.querySelector('.info');
 
@@ -39,25 +81,19 @@ let closeBtn = document.querySelector('.close');
 closeBtn.addEventListener('click', close_rules);
 // closeBtn.addEventListener('touchstart', close_rules);
 
+
 // Game Logic
+document.addEventListener('keypress', (event) => {
+        if (event.code === 'Enter' && !started && !ques_clicked) {
+            started = true;
+            console.log("game started");
+            setTimeout(() => {
+                levelUp();
+            }, 400);
+            act_Btn_Listeners();
+        }
 
-let playSound = new Audio('button_click.mp3');
-playSound.load();
-
-let buzzSound = new Audio("buzzer_sound.mp3");
-buzzSound.load();
-
-document.addEventListener('keypress', function(event) {
-    if (event.code === 'Enter' && !started && !ques_clicked) {
-        started = true;
-        console.log("game started");
-        setTimeout(() => {
-            levelUp();
-        },400);
-        act_Btn_Listeners();
-    }
-
-});
+    });
 
 document.addEventListener('touchstart', function(event) {
     if(event.target.classList.contains('info')){
@@ -66,6 +102,15 @@ document.addEventListener('touchstart', function(event) {
 
     else if(event.target.classList.contains('close')){
         close_rules();
+    }
+
+    else if(event.target.classList.contains('sound')){
+        console.log('hello');
+        if (no_sound.textContent === "") {
+            no_sound.textContent = "/";
+        } else {
+        no_sound.textContent = "";
+        }
     }
 
     else if (!started && !ques_clicked) {
@@ -139,7 +184,9 @@ function btnPress(event) {
     clicked_button = event.target;
     let user_color = clicked_button.getAttribute('id');
     if (user_color === 'red' || user_color === 'yellow' || user_color === 'green' || user_color === 'purple') {
-        playSound.play();
+        playSound.play().catch(function(error) {
+            console.error('Failed to play sound:', error);
+        });
         green_Flash(clicked_button);
         userSeq.push(user_color);
         check(userSeq.length - 1);  

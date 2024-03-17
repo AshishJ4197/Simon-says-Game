@@ -1,3 +1,42 @@
+  /* sound button */
+  #one{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1 !important;
+    height: 2em;
+    width: 2em;
+  }
+
+  .no_sound{
+    position:  absolute;
+    font-weight: 900;
+    font-size: 50px;
+    padding: 0%;
+    margin: 0%;
+    top: 0.8px;
+    left: 20px;
+    transform: skew(-40deg);
+
+  }
+
+  .sound{
+    position: absolute;
+    top: 1.2rem;
+    padding: 10px;
+    /* border: 2px solid black; */
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    left: 10px;
+    /* transition: background-color 0.005s; */
+  }
+
+  .sound:active{
+    background-color: rgb(212, 208, 208);
+  }
+  /* how to play */
+  
   .info{
     background-color: transparent;
     border: 1px solid black;
@@ -140,6 +179,27 @@
         height: 135px;
         width: 135px;
     }
+    #one{
+      top: 8px;
+      right: 8px;
+      left: auto;
+    }
+  
+    .no_sound{
+      top: 1px;
+      right: 15px;
+      font-size: 48px;
+      left: auto;
+  
+    }
+  
+    .sound{
+      top: 1.5rem;
+      right: 10px;
+      left: auto;
+    }
+
+
   }
 
   @media (min-width: 1200px){
@@ -150,4 +210,10 @@
       li{
         font-size: 20px;
       }
+  }
+
+  @media (max-height: 715px){
+    .score{
+      top: 35rem;
+    }
   }

@@ -25,6 +25,7 @@ The provided JavaScript code implements the logic for the Simon Says game. Here'
 - `act_Btn_Listeners()`: Function to reset the game state when the game ends.
 activateTouchButtonListener()`: Function to activate touch button listeners with a delay at the beginning of the game.
 - `rem_Btn_Listeners()`: Function to deactivate touch button listeners after reset.
+- `toggleSound()`: Function to toggle the Sound;
 
 
 ## Credits
